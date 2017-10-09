@@ -4,6 +4,7 @@ import VueResource from 'vue-resource'
 import Article from '@/components/Article'
 import About from '@/components/About'
 import Edit from '@/components/Edit'
+import Admin from '@/components/Admin'
 
 Vue.use(Router)
 Vue.use(VueResource)
@@ -24,6 +25,11 @@ export default new Router({
       path: '/edit',
       name: 'edit',
       component: Edit
+    },
+    {
+      path: '/admin',
+      name: 'admin',
+      component: Admin
     }
   ]
 })

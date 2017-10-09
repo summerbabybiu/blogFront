@@ -13,6 +13,10 @@ ul, li {
   list-style: none;
 }
 
+p {
+  margin: 0 0 10px 0;
+}
+
 a {
   text-decoration: none;
   color: #333;
@@ -22,6 +26,26 @@ a {
   }
 }
 
+@font-face {
+  font-family: 'myBlog';
+  src: url('assets/font/blog.eot'); /* IE9 Compat Modes */
+  src: url('assets/font/blog.eot') format('embedded-opentype'), /* IE6-IE8 */
+  url('assets/font/blog.woff') format('woff'), /* Modern Browsers */
+  url('assets/font/blog.ttf')  format('truetype'), /* Safari, Android, iOS */
+  url('assets/font/blog.svg') format('svg'); /* Legacy iOS */
+}
+
+.blog-icon {
+  font-family: 'myBlog';
+}
+
+.icon-delete:before {
+  content: 'd'
+}
+
+.icon-modify:before {
+  content: 'e'
+}
 
 .my-btn {
   display: block;
@@ -66,6 +90,7 @@ a {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   color: #2c3e50;
   font-size: 14px;
+  line-height: 24px;
   height: 100%;
   min-width: 320px;
 

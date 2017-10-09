@@ -16,13 +16,21 @@
     name: 'edit',
     data () {
       return {
-        content: '# hello',
-        title: ''
+        content: '',
+        title: '',
+        detail: null
       }
     },
     computed: {
       compiledMarkdown: function () {
         return marked(this.content, { sanitize: true })
+      }
+    },
+    created: function () {
+      if (this.$route.params.detail) {
+        this.detail = this.$route.params.detail
+        this.content = this.detail.rawContent
+        this.title = this.detail.title
       }
     },
     filters: {
@@ -31,8 +39,13 @@
     methods: {
       createArticle: function () {
         console.log({ title: this.title, content: this.content })
-        this.$http.post('https://summerbaby.me/post/create',
-          { title: this.title, content: this.content },
+        var postData = { title: this.title, content: this.content }
+        var postURL = 'https://summerbaby.me/post/create'
+        if (this.detail) {
+          postData['postid'] = this.detail.objectId
+          postURL = 'https://summerbaby.me/post/update'
+        }
+        this.$http.post(postURL, postData,
           {
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
