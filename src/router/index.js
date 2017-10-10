@@ -12,7 +12,7 @@ import Detail from '@/components/detail'
 Vue.use(Router)
 Vue.use(VueResource)
 Vue.http.options.emulateJSON = true
-// Vue.http.options.credentials = true
+Vue.http.options.credentials = true
 
 export default new Router({
   routes: [

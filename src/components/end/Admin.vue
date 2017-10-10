@@ -18,7 +18,6 @@
     methods: {
       getUserStatus: function () {
         this.$http.get('https://www.summerbaby.me/admin/user').then(response => {
-          console.log('then', response)
         },
         response => {
           console.log('r', response)
@@ -31,8 +30,7 @@
       }
     },
     created: function () {
-      console.log('created')
-//      this.getUserStatus()
+      this.getUserStatus()
     }
   }
 </script>
