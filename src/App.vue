@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import MyHead from '@/components/MyHead'
-import MyFoot from '@/components/MyFoot'
+import MyHead from '@/components/common/MyHead'
+import MyFoot from '@/components/common/MyFoot'
 
 export default {
   name: 'app',

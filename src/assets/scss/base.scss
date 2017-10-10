@@ -249,6 +249,23 @@ a {
     {
       background: rgba(0, 0, 0, 0.5);
     }
+
+
+    .login-area, .sign-area {
+      position: relative;
+      max-width: 400px;
+      padding: 15px;
+      margin: 80px auto 40px;
+
+      @media (max-width: 480px) {
+        margin: 40px auto 20px;
+      }
+
+      .fill-area {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
   }
 
   footer {

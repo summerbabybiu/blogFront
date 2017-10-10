@@ -40,17 +40,13 @@
       createArticle: function () {
         console.log({ title: this.title, content: this.content })
         var postData = { title: this.title, content: this.content }
-        var postURL = 'https://summerbaby.me/post/create'
+        var postURL = 'https://www.summerbaby.me/post/create'
         if (this.detail) {
           postData['postid'] = this.detail.objectId
-          postURL = 'https://summerbaby.me/post/update'
+          postURL = 'https://www.summerbaby.me/post/update'
         }
         this.$http.post(postURL, postData,
-          {
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-            }
-          }).then(response => {
+          ).then(response => {
             console.log(response.body)
           },
           response => {

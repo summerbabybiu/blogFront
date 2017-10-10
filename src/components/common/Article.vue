@@ -7,15 +7,15 @@
       <ul v-if="!isLoading">
         <li v-for="(articleItem, index) in articleArray" class="my-btn a-item" v-bind:class="{'item-edit': message=='edit'}">
           <div class="title">
-            <router-link v-if="message=='edit'" to="/edit/">{{ articleItem.title }}</router-link>
-            <router-link v-else to="/article/">{{ articleItem.title }}</router-link>
+            <router-link v-if="message=='edit'" to="/edit">{{ articleItem.title }}</router-link>
+            <router-link v-else :to="{name: 'detail', params:{detail: articleItem}}">{{ articleItem.title }}</router-link>
           </div>
           <div class="other">
             <span>time: {{ articleItem.updatedAt}}</span>
             <!--<span>author: summerbaby</span>-->
           </div>
           <div v-html="articleItem.content"></div>
-          <button v-if="message=='edit'" class="the-delete my-btn">
+          <button v-if="message=='edit'" class="the-delete my-btn" v-on:click="deleteArticle(articleItem.objectId)">
             <span class="blog-icon icon-delete"></span>
           </button>
           <router-link v-if="message=='edit'" :to="{name: 'edit', params:{detail: articleItem}}" class="the-modify my-btn">
@@ -49,6 +49,24 @@
           console.log(response)
           this.isLoading = false
         })
+      },
+      deleteArticle: function (i) {
+        console.log(i)
+        var r = confirm('Are you sure to delete?')
+        if (r === true) {
+          this.$http.post('https://www.summerbaby.me/post/delete', {postid: i}).then(response => {
+            console.log('then', response)
+            if (response.status === 200) {
+              this.list()
+            } else {
+              alert(response.data)
+            }
+          },
+          response => {
+            alert('delete failed')
+            console.log('r', response)
+          })
+        }
       }
     },
     mounted: function () {
