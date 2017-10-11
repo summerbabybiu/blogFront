@@ -1,5 +1,5 @@
 <template>
-  <div class="my-cover">
+  <div class="my-cover" style="margin-bottom: 80px">
     <h1>关于</h1>
     <h2>个人信息</h2>
     <ul>
@@ -20,7 +20,7 @@
     <h2>工作经历</h2>
     <ul>
       <li>Student.com 2016.1-2016.3 Web前端实习生</li>
-      <li>心动网络 2016.3-2017.8 Web前端工程师</li>
+      <li>上海心动网络股份有限公司 2016.3-2017.8 Web前端工程师</li>
     </ul>
     <h2>个人项目</h2>
     <ul>
@@ -41,7 +41,6 @@
           Node.js Express Web应用, 实现独立的登录验证、分页中间件。采用 MongoDB作为数据库落地文章、用户等数据模型。采用 Docker Compose部署, nginx进行 proxy。
         </p>
       </li>
-
     </ul>
   </div>
 </template>

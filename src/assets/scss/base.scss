@@ -3,10 +3,6 @@ body {
   padding: 0;
 }
 
-html, body {
-  //min-height: 100%;
-}
-
 ul, li {
   margin: 0;
   padding: 0;
@@ -264,6 +260,25 @@ a {
       .fill-area {
         width: 100%;
         margin-bottom: 20px;
+      }
+    }
+
+    .detail-cover,#editor {
+      img {
+        max-width: 100%;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+      h1,h2,h3,h4,h5 {
+        margin: 0 0 10px 0;
+      }
+    }
+
+    .end-list {
+      h1,h2,h3,h4,h5 {
+        margin: 0 0 10px 0;
       }
     }
   }

@@ -47,7 +47,8 @@
         }
         this.$http.post(postURL, postData,
           ).then(response => {
-            console.log(response.body)
+            console.log('then', response.body)
+            this.$router.push({path: '/'})
           },
           response => {
             console.log(response)
