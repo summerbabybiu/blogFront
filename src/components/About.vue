@@ -35,7 +35,7 @@
       </li>
       <li>
         <h3>
-          <a href="https://github.com/SummerBabyPractice/PRD">博客后端</a>
+          <a href="https://github.com/summerbabybiu/PRD">博客后端</a>
         </h3>
         <p>
           Node.js Express Web应用, 实现独立的登录验证、分页中间件。采用 MongoDB作为数据库落地文章、用户等数据模型。采用 Docker Compose部署, nginx进行 proxy。

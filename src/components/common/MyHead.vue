@@ -35,7 +35,9 @@
         this.navShow = !this.navShow
       },
       closeNav: function () {
-        this.make()
+        if (this.navShow === true) {
+          this.make()
+        }
       }
     }
   }
