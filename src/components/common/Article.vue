@@ -8,7 +8,9 @@
         <li v-for="(articleItem, index) in articleArray" class="my-btn a-item" v-bind:class="{'item-edit': message=='edit'}">
           <div class="title">
             <router-link v-if="message=='edit'" to="/edit">{{ articleItem.title }}</router-link>
-            <router-link v-else :to="{name: 'detail', params:{detail: articleItem}}">{{ articleItem.title }}</router-link>
+            <!--<router-link v-else :to="{name: 'detail', query:{postid: articleItem.objectId}}">{{ articleItem.title }}</router-link>-->
+            <router-link v-else :to="{path: '/article/detail/'+articleItem.objectId }">{{ articleItem.title }}</router-link>
+
           </div>
           <div class="other">
             <span>time: {{ articleItem.updatedAt}}</span>
@@ -18,7 +20,7 @@
           <button v-if="message=='edit'" class="the-delete my-btn" v-on:click="deleteArticle(articleItem.objectId)">
             <span class="blog-icon icon-delete"></span>
           </button>
-          <router-link v-if="message=='edit'" :to="{name: 'edit', params:{detail: articleItem}}" class="the-modify my-btn">
+          <router-link v-if="message=='edit'" :to="{name: 'edit', query:{postid: articleItem.objectId}}" class="the-modify my-btn">
             <span class="blog-icon icon-modify"></span>
           </router-link>
         </li>

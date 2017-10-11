@@ -4,29 +4,57 @@
       {{ title }}
     </div>
     <div class="time">
-      {{ detail.createdAt }}
+      {{ theTime }}
     </div>
     <div class="content" v-html="content"></div>
   </div>
 </template>
 
 <script>
+  var aaa = require('@/components/getArticle').getArticle
+  console.log(aaa)
   export default {
     name: 'detail',
     data () {
       return {
         title: '',
         content: '',
-        detail: ''
+        articleId: '',
+        theTime: ''
       }
     },
     created: function () {
-      console.log(this.$route.params.detail)
-      if (this.$route.params.detail) {
-        this.detail = this.$route.params.detail
-        this.content = this.detail.content
-        this.title = this.detail.title
+//      console.log(this.$route.query.postid) 参数传在query中
+//      if (this.$route.query.postid) {
+//        this.articleId = this.$route.query.postid
+//        this.getArticle()
+//      }
+  //  参数传在params中
+      console.log(this.$route.params.postid)
+      if (this.$route.params.postid) {
+        this.articleId = this.$route.params.postid
+//        this.getArticle()
+        aaa.call(this, this.articleId, function (data) {
+          console.log(data)
+          this.title = data.title
+          this.content = data.content
+          this.theTime = data.createdAt
+        })
       }
+    },
+    methods: {
+//      getArticle: function () {
+//        var postUrl = 'https://www.summerbaby.me/post/getByPathForArticle/' + this.articleId
+//        this.$http.get(postUrl).then(response => {
+//          console.log('then', response)
+//          this.title = response.body.title
+//          this.content = response.body.content
+//          this.theTime = response.body.createdAt
+//        }, response => {
+//          alert('delete failed')
+//          console.log('r', response)
+//        })
+//      }
     }
   }
 </script>

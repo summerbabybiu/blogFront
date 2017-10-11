@@ -10,6 +10,7 @@
 </template>
 
 <script>
+  var getArticle = require('@/components/getArticle').getArticle
   var marked = require('marked')
 
   export default {
@@ -17,8 +18,7 @@
     data () {
       return {
         content: '',
-        title: '',
-        detail: null
+        title: ''
       }
     },
     computed: {
@@ -27,10 +27,15 @@
       }
     },
     created: function () {
-      if (this.$route.params.detail) {
-        this.detail = this.$route.params.detail
-        this.content = this.detail.rawContent
-        this.title = this.detail.title
+      // 参数传在query中
+      console.log(this.$route.query.postid)
+      if (this.$route.query.postid) {
+        this.articleId = this.$route.query.postid
+        getArticle.call(this, this.articleId, function (data) {
+          this.title = data.title
+          this.content = data.content
+          this.theTime = data.createdAt
+        })
       }
     },
     filters: {

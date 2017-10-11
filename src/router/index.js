@@ -47,7 +47,7 @@ export default new Router({
       component: Register
     },
     {
-      path: '/article/detail',
+      path: '/article/detail/:postid',
       name: 'detail',
       component: Detail
     }
