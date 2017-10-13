@@ -33,7 +33,7 @@
         this.articleId = this.$route.query.postid
         getArticle.call(this, this.articleId, function (data) {
           this.title = data.title
-          this.content = data.content
+          this.content = data.rawcontent
           this.theTime = data.createdAt
         })
       }
