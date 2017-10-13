@@ -46,7 +46,7 @@
         console.log({ title: this.title, content: this.content })
         var postData = { title: this.title, content: this.content }
         var postURL = 'https://www.summerbaby.me/post/create'
-        if (this.detail) {
+        if (this.articleId) {
           postData['postid'] = this.detail.objectId
           postURL = 'https://www.summerbaby.me/post/update'
         }
